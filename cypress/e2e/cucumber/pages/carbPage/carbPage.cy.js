@@ -1,19 +1,41 @@
 import 'cypress-xpath';
-import { compareObjects } from '../../utils/common';
-import { calculatorPage } from '../../utils/locators';
-import { url } from '../../utils/utils';
+import { calculatorPage } from "../../../../../utils/locators";
+import { compareObjects } from '../../../../../utils/common';
+import { url } from '../../../../../utils/utils';
 
-describe('Miffin St Joer formula tests', () => {
-  it('Test Miffin St Joer formula gives correct results', () => {
-    cy.visit(url.carbohydrateCalculator)
-    cy.get(calculatorPage.ageId).clear().type(28)
-    cy.xpath(calculatorPage.genderXpath).click()
-    cy.get(calculatorPage.heightId).clear().type(180)
-    cy.get(calculatorPage.weightId).clear().type(80)
-    cy.get(calculatorPage.activityId).select([1])
-    cy.xpath(calculatorPage.calculateButtonXpath).click()
+class CarbPage {
+  enter_url() {
+    cy.visit(url.carbohydrateCalculator);
+  }
+  enter_age(age) {
+    cy.get(calculatorPage.ageId).clear().type(age);
+  }
+  enter_height(height) {
+    cy.get(calculatorPage.heightId).clear().type(height);
+  }
+  enter_weight(weight) {
+    cy.get(calculatorPage.weightId).clear().type(weight);
+  }
+  select_male() {
+    cy.xpath(calculatorPage.genderXpath).click();
+  }
+  select_activity(activity_type) {
+    if (activity_type == "light") {
+      cy.get(calculatorPage.activityId).select([1]);
+    }
+  }
+  click_button(button) {
+    if (button == "calculate") {
+      cy.xpath(calculatorPage.calculateButtonXpath).click()
+    }
+  }
+  check_results_visible() {
     cy.get(calculatorPage.resultHeader).should('be.visible').and('contain', 'Result')
-
+  }
+  check_error_message_visible() {
+    cy.xpath(calculatorPage.error_message).should('be.visible').and('contain', "Please provide an age between 18 and 80.")
+  }
+  verify_result() {
     const expectedTableData = {
       "Weight Maintenance": "2,461 Calories,263 grams,361 grams,427 grams,492 grams",
       "Lose 0.5 kg/week": "1,961 Calories,209 grams,288 grams,340 grams,392 grams",
@@ -37,5 +59,7 @@ describe('Miffin St Joer formula tests', () => {
       const comparison = compareObjects(tableData, expectedTableData)
       expect(comparison).to.deep.equal(true);
     });
-  })
-})
+  }
+ }
+ const carbPage = new CarbPage();
+ export default carbPage;

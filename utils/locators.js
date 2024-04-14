@@ -6,5 +6,6 @@ export const calculatorPage = {
     activityId: '#cactivity',
     calculateButtonXpath: "//input[@value='Calculate']",
     resultHeader: '.h2result',
+    error_message: "//div/font[contains(text(), 'Please provide an age between 18 and 80.')]",
     tableRows: 'table.cinfoT tbody tr'
 };
