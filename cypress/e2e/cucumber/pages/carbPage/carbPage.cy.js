@@ -11,7 +11,7 @@ class CarbPage {
     cy.get(calculatorPage.ageId).clear().type(age);
   }
   enter_height(height) {
-    cy.get(calculatorPage.heightId).clear().type(height);
+    cy.get(calculatorPage.heightId).clear({force: true}).type(height);
   }
   enter_weight(weight) {
     cy.get(calculatorPage.weightId).clear().type(weight);
