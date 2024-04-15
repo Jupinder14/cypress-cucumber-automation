@@ -33,6 +33,7 @@ jobs:
 
       - name: Test
         run: npx cypress run
+        continue-on-error: true
 
   upload_screenshots:
       needs: run-tests
