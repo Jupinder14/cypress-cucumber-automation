@@ -6,6 +6,13 @@ module.exports = defineConfig({
     specPattern: "**/*.feature",
     setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
+      on('task', {
+        log(message) {
+          console.log(message)
+
+          return null
+        },
+      })
     },
   },
 });
