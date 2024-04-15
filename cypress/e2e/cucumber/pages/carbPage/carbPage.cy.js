@@ -57,8 +57,6 @@ class CarbPage {
         tableData[dataFor] = rowData.join(',');
       });
       const comparison = compareObjects(tableData, expectedTableData)
-      cy.log('Expected data: ' + JSON.stringify(expectedTableData, null, 2))
-      cy.log('Actual: ' + JSON.stringify(tableData, null, 2))
       expect(comparison).to.deep.equal(true);
     });
   }
