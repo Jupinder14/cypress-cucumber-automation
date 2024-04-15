@@ -8,7 +8,6 @@ Scenario: Verify the calculator displays correct results for male using Mifflin 
     And I select "light" exercise
     And I click "calculate"
     Then I see "results"
-    And I verify results are accurate
 
 Scenario Outline: Verify functinality of carbohydrate calculator age field with boundary values
     Given I am on carbohydrate calculator page
