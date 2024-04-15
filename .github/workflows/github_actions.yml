@@ -25,6 +25,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -34,10 +35,10 @@ jobs:
         run: npm install
 
       - name: Test
-        run: npx cypress run
+        run: npx cypress run --browser chrome
 
-      - name: Archive report
-        uses: actions/upload-artifact@v3
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v2
         with:
-          name: screenshots
-          path: cypress/screenshots
+          name: Screenshots
+          path: /home/runner/work/cypress-automation/cypress-automation/cypress/screenshots
