@@ -14,7 +14,7 @@ class CarbPage {
     cy.get(calculatorPage.heightId).clear({force: true}).type(height, { force: true });
   }
   enter_weight(weight) {
-    cy.get(calculatorPage.weightId).clear().type(weight);
+    cy.get(calculatorPage.weightId).clear({force: true}).type(weight, { force: true });
   }
   select_male() {
     cy.xpath(calculatorPage.genderXpath).click();
