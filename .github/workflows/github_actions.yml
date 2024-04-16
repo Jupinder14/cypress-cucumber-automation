@@ -33,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Report
-          path: /home/runner/work/cypress-automation/cypress-automation/cypress/reports/html
+          path: /home/runner/work/cypress-cucumber-automation/cypress-cucumber-automation/cypress/reports/html
