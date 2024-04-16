@@ -28,3 +28,9 @@ jobs:
 
       - name: Test
         run: npx cypress run
+
+      - name: Upload report to artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Report
+          path: /home/runner/work/cypress-automation/cypress-automation/cypress/reports/html
