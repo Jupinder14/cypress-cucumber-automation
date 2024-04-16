@@ -27,3 +27,12 @@ This will run tests in CI environment in default browser which is Electron.
 
 To run tests in specific browser such as Chrome
 `npx cypress run --browser chrome`
+
+### Reporting
+
+In this project, we are using the cypress-mochawesome-reporter for generating html reports for test run.
+
+If you are running the tests locally, you can access the report in cypress/reports folder.
+
+To access the reports for tests ran in Guthub actions pipeline, go to the pipeline run and download the  reprort from artifacts.
+The reports are automatically uploaded to artifacts for every test run. Github actions store the build artifacts for 90 days after which they will get deleted.
