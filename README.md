@@ -34,7 +34,12 @@ In this project, we are using the cypress-mochawesome-reporter for generating ht
 
 If you are running the tests locally, you can access the report in cypress/reports folder.
 
-To access the reports for tests ran in Guthub actions pipeline, go to the pipeline run and download the  reprort from artifacts.
-The reports are automatically uploaded to artifacts for every test run. Github actions store the build artifacts for 90 days after which they will expire.
+To access the reports for tests executions in Github actions, you can either download it from artifacts, or access it using github pages.
+
+1. Github pages: Report for each test run is deployed to github pages. Latest test run will be shown there.
+
+Github pages link - https://jupinder14.github.io/cypress-cucumber-automation/
+
+2. Artifacts: If you want to look at the older test runs, go to the pipeline run and download the report from the Artifacts section. Github actions store the build artifacts for 90 days after which they will expire.
 
 Example of the uploaded artifacts can be accessed at https://github.com/Jupinder14/cypress-cucumber-automation/actions/runs/8710683385
