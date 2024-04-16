@@ -34,3 +34,11 @@ jobs:
         with:
           name: Report
           path: /home/runner/work/cypress-cucumber-automation/cypress-cucumber-automation/cypress/reports/html
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: /home/runner/work/cypress-cucumber-automation/cypress-cucumber-automation/cypress/reports/html
